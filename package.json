@@ -1,0 +1,77 @@
+{
+  "name": "cursor-settings-cli",
+  "version": "0.1.0",
+  "description": "CLI to extract, compare, and safely replace Cursor IDE settings stored in state.vscdb.",
+  "bin": {
+    "cursor-settings": "dist/bin/cursor-settings.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "cursor",
+    "vscode",
+    "sqlite",
+    "settings",
+    "json",
+    "diff"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourname/cursor-settings-cli.git"
+  },
+  "homepage": "https://github.com/yourname/cursor-settings-cli#readme",
+  "author": {
+    "name": "Patrick I. Oliveras"
+  },
+  "type": "commonjs",
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "doctor": "node scripts/doctor.js",
+    "prepare": "husky install",
+    "test": "vitest run --coverage",
+    "test:watch": "vitest",
+    "prepublishOnly": "npm run clean && npm run build && npm run lint && npm run format:check && npm test",
+    "ci": "npm run typecheck && npm run lint && npm run format:check && npm run build && npm test"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@types/node": "^20.16.10",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "@vitest/coverage-v8": "^2.1.9",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
+    "prettier": "^3.3.3",
+    "rimraf": "^5.0.7",
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.5"
+  },
+  "lint-staged": {
+    "**/*.{ts,js,cjs,mjs}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "**/*.{json,md,yml,yaml}": [
+      "prettier --write"
+    ]
+  }
+}

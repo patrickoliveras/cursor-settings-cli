@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json.schemastore.org/prettierrc",
+  "semi": true,
+  "singleQuote": true,
+  "printWidth": 100,
+  "trailingComma": "es5",
+  "endOfLine": "lf",
+  "overrides": [
+    {
+      "files": ["src/**/*.js", "src/**/*.ts"],
+      "options": {
+        "useTabs": true,
+        "tabWidth": 2
+      }
+    },
+    {
+      "files": ["bin/**/*.js", "src/bin/**/*.ts"],
+      "options": {
+        "useTabs": false,
+        "tabWidth": 2
+      }
+    }
+  ]
+}

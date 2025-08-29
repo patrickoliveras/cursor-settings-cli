@@ -1,0 +1,23 @@
+root = true
+
+[*]
+indent_style = space
+indent_size = 2
+end_of_line = lf
+charset = utf-8
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[{src/**.js}]
+indent_style = tab
+
+[{src/**.ts}]
+indent_style = tab
+
+[{bin/**.js}]
+indent_style = space
+indent_size = 2
+
+[{src/bin/**.ts}]
+indent_style = space
+indent_size = 2
