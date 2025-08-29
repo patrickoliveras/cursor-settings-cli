@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 'use strict';
 
-import { runExtract as cmdExtract, printHelp as helpExtract } from '../commands/extract';
-import { runCompare as cmdCompare, printHelp as helpCompare } from '../commands/compare';
-import { runReplace as cmdReplace, printHelp as helpReplace } from '../commands/replace';
+import { runExtract as cmdExtract } from '../commands/extract';
+import { runCompare as cmdCompare } from '../commands/compare';
+import { runReplace as cmdReplace } from '../commands/replace';
 
 function printRootHelp(): void {
   console.log(`Usage: cursor-settings <command> [options]
@@ -36,10 +36,12 @@ Run 'cursor-settings <command> --help' for command-specific options.
       case '':
         printRootHelp();
         process.exit(0);
+        break;
       default:
         console.error(`Unknown command: ${cmd}`);
         printRootHelp();
         process.exit(1);
+        break;
     }
   } catch (err) {
     console.error('Error:', (err as Error).message);
