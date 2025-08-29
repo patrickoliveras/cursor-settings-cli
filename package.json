@@ -21,9 +21,9 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yourname/cursor-settings-cli.git"
+    "url": "git+https://github.com/patrickoliveras/cursor-settings-cli.git"
   },
-  "homepage": "https://github.com/yourname/cursor-settings-cli#readme",
+  "homepage": "https://github.com/patrickoliveras/cursor-settings-cli#readme",
   "author": {
     "name": "Patrick I. Oliveras"
   },
