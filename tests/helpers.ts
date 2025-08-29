@@ -17,7 +17,10 @@ export function mkTmpDir(prefix = 'cursor-settings-test-'): string {
 }
 
 export function initStateDb(dbPath: string): void {
-  execFileSync('sqlite3', [dbPath, 'CREATE TABLE IF NOT EXISTS ItemTable (key TEXT PRIMARY KEY, value TEXT);']);
+  execFileSync('sqlite3', [
+    dbPath,
+    'CREATE TABLE IF NOT EXISTS ItemTable (key TEXT PRIMARY KEY, value TEXT);',
+  ]);
 }
 
 export function writeDbValue(dbPath: string, key: string, jsonString: string): void {

@@ -4,7 +4,8 @@ import fs from 'fs';
 import { execFileSync } from 'child_process';
 import { hasSqlite3, mkTmpDir, initStateDb, writeDbValue } from './helpers';
 
-const KEY = 'src.vs.platform.reactivestorage.browser.reactiveStorageServiceImpl.persistentStorage.applicationUser';
+const KEY =
+  'src.vs.platform.reactivestorage.browser.reactiveStorageServiceImpl.persistentStorage.applicationUser';
 
 (hasSqlite3() ? describe : skip)('e2e: compare', () => {
   let tmp: string;

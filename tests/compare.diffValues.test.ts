@@ -1,14 +1,11 @@
 import { describe, it, expect } from 'vitest';
-import { diffValues, type DiffRecord } from '../src/commands/compare';
+import { diffValues } from '../src/commands/compare';
 
 const run = (a: unknown, b: unknown, opts?: { ignore?: string[]; unordered?: string[] }) => {
-  const diffs = diffValues(
-    a,
-    b,
-    [],
-    [],
-    { ignoreSet: new Set(opts?.ignore || []), unorderedPaths: new Set(opts?.unordered || []) }
-  );
+  const diffs = diffValues(a, b, [], [], {
+    ignoreSet: new Set(opts?.ignore || []),
+    unorderedPaths: new Set(opts?.unordered || []),
+  });
   return diffs;
 };
 

@@ -36,7 +36,8 @@ export async function runReplace(rawArgv: string[]): Promise<void> {
 	if (!newFilePath) throw new Error('Missing --file <path|->');
 
 	const probe = await probeDbWritable(dbPath);
-	if (!probe.writable) console.error('Warning: DB may be locked or not writable. Close Cursor and try again.');
+	if (!probe.writable)
+		console.error('Warning: DB may be locked or not writable. Close Cursor and try again.');
 
 	const srcJson = await readFileMaybeStdin(newFilePath === '-' ? '-' : path.resolve(newFilePath));
 	const newObj = parseJsonStrict(srcJson) as unknown;
@@ -69,7 +70,9 @@ export async function runReplace(rawArgv: string[]): Promise<void> {
 	}
 
 	if (!(args.yes as boolean)) {
-		console.log('About to write new JSON into the DB. If Cursor is open, close it now. Proceeding in 3 seconds...');
+		console.log(
+			'About to write new JSON into the DB. If Cursor is open, close it now. Proceeding in 3 seconds...'
+		);
 		await new Promise((resolve) => setTimeout(resolve, 3000));
 	}
 
@@ -87,7 +90,10 @@ export async function runReplace(rawArgv: string[]): Promise<void> {
 	} catch {
 		ok = false;
 	}
-	if (!ok) throw new Error('Verification failed: DB content does not match the provided JSON. The original value was backed up.');
+	if (!ok)
+		throw new Error(
+			'Verification failed: DB content does not match the provided JSON. The original value was backed up.'
+		);
 	console.log('Replacement successful and verified.');
 }
 
