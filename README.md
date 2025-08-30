@@ -1,5 +1,7 @@
 # cursor-settings-cli
 
+### Use at your own risk!
+
 CLI tools to extract, compare, and replace JSON values stored in Cursor's `state.vscdb` SQLite database.
 
 Inspired by the discovery and write-up on Cursor settings storage by Jack Youstra: [Cursor settings location](https://www.jackyoustra.com/blog/cursor-settings-location).
